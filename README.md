@@ -8,10 +8,16 @@ UI/UX 设计智能助手 + Chrome 设计收集插件。
 
 ### 1. 安装 Skill（必需）
 
-将整个文件夹复制到 Claude Code 的 skills 目录：
-
+**方法 1：直接克隆（推荐）**
 ```bash
-cp -r ui-ux-pro-max-full ~/.claude/skills/ui-ux-pro-max
+git clone https://github.com/feitangyuan/UI-UX-Collector.git ~/.claude/skills/ui-ux-pro-max
+```
+
+**方法 2：手动下载后复制**
+1. 从 GitHub 下载 ZIP 并解压
+2. 复制到 skills 目录：
+```bash
+cp -r UI-UX-Collector ~/.claude/skills/ui-ux-pro-max
 ```
 
 ### 2. 安装 Chrome 插件
