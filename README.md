@@ -1,36 +1,49 @@
 # UI-UX-Collector
 
-> **ui-ux-pro-max skill 的 Chrome 设计收集插件**
+**Chrome 插件** for [ui-ux-pro-max](https://github.com/feitangyuan/ui-ux-pro-max) skill (1w+ ⭐)
 
-收集网页设计 → 自动分析风格/配色/效果 → 存入本地知识库 → Claude 设计时可搜索参考。
+> 浏览网页时一键收集 UI 设计，自动分析风格/配色/字体，存入本地知识库。
+
+## 为什么需要这个插件？
+
+[ui-ux-pro-max](https://github.com/feitangyuan/ui-ux-pro-max) 是 Claude Code 的 UI/UX 设计助手，内置 50+ 风格库。这个插件让你：
+
+- **实时收集**：看到喜欢的网页，点一下就保存
+- **自动分析**：Claude 自动提取颜色、字体、布局、效果
+- **可搜索**：以后设计时，让 Claude 参考你收集的案例
+
+## 演示
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  1. 浏览网页        2. 点击插件         3. 查看收藏      │
+│  ┌─────────┐      ┌─────────┐       ┌─────────┐        │
+│  │ 网页内容 │  →   │ Analyze │   →   │ 已保存   │        │
+│  └─────────┘      └─────────┘       └─────────┘        │
+└─────────────────────────────────────────────────────────┘
+```
 
 ## 前提条件（必须）
 
-这个插件是 [ui-ux-pro-max](https://github.com/feitangyuan/ui-ux-pro-max) skill 的增强工具，使用前需要先安装：
+这个插件依赖以下工具，使用前请先安装：
 
 ### 1. Claude CLI
 
 ```bash
-# 安装 Claude CLI
 curl -fsSL https://claude.ai/install.sh | sh
-
-# 验证安装
-claude -v
+claude -v  # 验证
 ```
 
 ### 2. ui-ux-pro-max skill
 
 ```bash
-# 安装 skill
 git clone https://github.com/feitangyuan/ui-ux-pro-max.git ~/.claude/skills/ui-ux-pro-max
-
-# 验证安装
-ls ~/.claude/skills/ui-ux-pro-max
+ls ~/.claude/skills/ui-ux-pro-max  # 验证
 ```
 
 ---
 
-## 安装插件
+## 安装
 
 ### 1. 下载插件
 
@@ -40,8 +53,8 @@ git clone https://github.com/feitangyuan/UI-UX-Collector.git ~/ui-ux-collector
 
 ### 2. 安装到 Chrome
 
-1. Chrome 地址栏输入 `chrome://extensions`
-2. 开启右上角「开发者模式」
+1. 打开 `chrome://extensions`
+2. 开启「开发者模式」（右上角）
 3. 点击「加载已解压的扩展程序」
 4. 选择 `~/ui-ux-collector/extension` 文件夹
 
@@ -71,7 +84,7 @@ node ~/ui-ux-collector/host/server.js
 3. 点击「Analyze This Page」
 4. 等待 Claude 分析完成（约 10-30 秒）
 
-### 查看收集
+### 查看收藏
 
 点击插件图标 → 「View Collection」
 
@@ -81,11 +94,11 @@ node ~/ui-ux-collector/host/server.js
 ### 在 Claude Code 中搜索
 
 ```bash
-# 搜索收集的设计
+# 搜索你收集的设计
 python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "dark glassmorphism" --domain collected
 
 # 搜索预设风格库
-python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "fintech modern" --domain style
+python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "fintech" --domain style
 
 # 搜索配色方案
 python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "saas" --domain color
@@ -104,7 +117,7 @@ ui-ux-collector/
 │   └── content.js
 ├── host/
 │   └── server.js       # 本地服务器（连接 Claude CLI）
-└── README.md           # 本文档
+└── README.md
 ```
 
 设计数据保存在 ui-ux-pro-max skill 的 data 目录：
